@@ -7,9 +7,8 @@ import requests
 
 def forward_request(name, curr_obj, paths: list[str]):
     abs_paths = []
-    abs_path_prefix = "..."
     for path in paths:
-        abs_paths.append(abs_path_prefix + curr_obj + "/" + path + ".png")
+        abs_paths.append(curr_obj + "/" + path + ".png")
 
     data = {
         "type": "rep_out",
@@ -29,6 +28,8 @@ def random_name():
     return ''.join(random.choice(letters) for i in range(10))
 
 def capture_feed():
+    print("To begin a capture, position your item and hit the 'a' key.")
+    print("This will take the first two images.")
     video_capture_0 = cv2.VideoCapture(0)
     video_capture_1 = cv2.VideoCapture(2)
 
@@ -86,3 +87,6 @@ def capture_feed():
     video_capture_0.release()
     video_capture_1.release()
     cv2.destroyAllWindows()
+
+if __name__ == '__main__':
+    capture_feed()

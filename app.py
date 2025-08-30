@@ -1,13 +1,9 @@
 from flask import Flask, render_template_string, send_from_directory, abort, url_for
 from flask import render_template, request, jsonify
-from werkzeug.exceptions import NotFound
-from werkzeug.utils import safe_join
 from replicate_helper import send_to_replicate
 from flask import send_from_directory
 import os
 app = Flask(__name__)
-ABS_PATH_PREFIX = os.getenv("ABS_PATH_PREFIX")
-
 @app.route('/')
 def hello_world():  # put application's code here
     return 'Hello World!'
@@ -39,19 +35,12 @@ def files(filename):
     # NOTE: Files are served through this method to avoid Flask's static folder
     #       The intent is to preserve backend flexibility for research code
 
+    directory = "local_storage/"
+    fpath = directory + filename
+    if not os.path.isfile(fpath):
+        abort(404, description=f"File not found: {fpath}")
 
-    # safe_join prevents path traversal
-    try:
-        full_path = safe_join(ABS_PATH_PREFIX, filename)
-    except NotFound:
-        abort(404)
-
-    if not os.path.isfile(full_path):
-        abort(404, description=f"File not found: {filename}")
-
-    directory = os.path.dirname(full_path)
-    fname = os.path.basename(full_path)
-    return send_from_directory(directory, fname)
+    return send_from_directory(directory, filename)
 
 @app.route('/replicate', methods=['POST'])
 def post_replicate():
@@ -72,14 +61,8 @@ def test_image(object_name):
     # the image we expect to exist for this test
     img_rel = f"{object_name}/img_a1.png"
 
-    # verify file exists before rendering the HTML
-    try:
-        full_path = safe_join(ABS_PATH_PREFIX, img_rel)
-    except NotFound:
-        return f"Invalid path: {img_rel}", 400
-
-    if not os.path.isfile(full_path):
-        return f"Test image not found at {full_path}", 404
+    if not os.path.isfile(img_rel):
+        return f"Test image not found at {img_rel}", 404
 
     html = """
     <!doctype html>
