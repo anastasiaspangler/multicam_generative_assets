@@ -1,5 +1,5 @@
 # Generating 3D Assets
-This program offers a bit of architecture to get you quickly generating 3D assets using a two-camera setup.
+This program offers a bit of infrastructure to get you quickly generating 3D assets using a two-camera setup.
 
 
 <img width="2535" height="1268" alt="demo" src="https://github.com/user-attachments/assets/94005bb3-9706-43a1-8426-6217eab48e4f" />
