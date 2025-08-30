@@ -12,4 +12,41 @@ Two cameras are required. If you have an updated iPhone, you can use the Continu
 Bright lighting and a clean surface will get you higher quality generations.
 
 ## Running the program
-TBD
+**Install requirements**
+```
+pip install -r requirements.txt
+```
+
+**Run the Flask App**
+```
+python -m flask run
+```
+
+**Open a New Terminal**
+
+You're going to have two runs active in parallel. Don't close the terminal running the app.
+```
+python terminal_capture.py
+```
+
+Verify that the two camera feed windows that open are what you want. If you only see one, they might be on top of each other.
+
+The prompts in the terminal will guide you on capture. Once the prediction is complete, the  response will appear in the terminal with a link to the viewer.
+
+```
+To begin a capture, position your item and hit the 'a' key.
+This will take the first two images.
+Object VgdVNtoceu: first shots saved. Adjust pose, then press 'n' for second shots.
+Object VgdVNtoceu: second shots saved. Capture complete.
+Sending to queue...
+{'preview': 'http://127.0.0.1:5000/viewer/VgdVNtoceu', 'received': {'name': 'VgdVNtoceu', 'path_a': 'local_storage/VgdVNtoceu/img_a1.png', 'path_b': 'local_storage/VgdVNtoceu/img_b1.png', 'path_c': 'local_storage/VgdVNtoceu/img_a2.png', 'path_d': 'local_storage/VgdVNtoceu/img_b2.png', 'timestamp': '2025-08-30T15:32:09.538134', 'type': 'rep_out'}, 'status': 'pass'}
+```
+
+
+
+
+
+
+
+
+
