@@ -5,7 +5,7 @@ This program offers a bit of infrastructure to get you quickly generating 3D ass
 <img width="2535" height="1268" alt="demo" src="https://github.com/user-attachments/assets/94005bb3-9706-43a1-8426-6217eab48e4f" />
 
 ## Setup
-A [Replicate](url) account is required. Replicate offers endpoints for community AI models. The model used here costs about $0.04 (USD) per run.
+A [Replicate](https://replicate.com/docs/reference/http#authentication) account is required. Replicate offers endpoints for community AI models. The model used here costs about $0.04 (USD) per run.
 
 Two cameras are required. If you have an updated iPhone, you can use the Continuity Camera feature and openCV will read it. 
 
