@@ -42,6 +42,8 @@ Sending to queue...
 {'preview': 'http://127.0.0.1:5000/viewer/VgdVNtoceu', 'received': {'name': 'VgdVNtoceu', 'path_a': 'local_storage/VgdVNtoceu/img_a1.png', 'path_b': 'local_storage/VgdVNtoceu/img_b1.png', 'path_c': 'local_storage/VgdVNtoceu/img_a2.png', 'path_d': 'local_storage/VgdVNtoceu/img_b2.png', 'timestamp': '2025-08-30T15:32:09.538134', 'type': 'rep_out'}, 'status': 'pass'}
 ```
 
+Rinse and repeat!
+
 ## Accessing Data
 
 Each capture is assigned a random string as an object name. Under **local_storage** you can view your data.
